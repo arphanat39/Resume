@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Software Developer Resume</title>
+    <style>
+        /* ==========================================
+           1. CORE STYLES & VARIABLES
+           ========================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --eggshell-white: #FDFBF7;
+            --navy-blue: #0A192F;
+            --navy-light: #172A45;
+            --pastel-yellow: #FCE285;
+            --text-dark: #233554;
+            --text-light: #8892B0;
+            --card-bg: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--eggshell-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        a {
+            transition: all 0.3s ease;
+        }
+
+        /* ==========================================
+           2. NAVIGATION BAR
+           ========================================== */
+        header {
+            background-color: var(--navy-blue);
+            color: var(--eggshell-white);
+            padding: 1.2rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--pastel-yellow);
+            letter-spacing: 0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--eggshell-white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--pastel-yellow);
+        }
+
+        /* ==========================================
+           3. HERO SECTION (WELCOME / OVERVIEW)
+           ========================================== */
+        .hero {
+            background-color: var(--navy-blue);
+            color: var(--eggshell-white);
+            padding: 7rem 2rem 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h3 {
+            color: var(--pastel-yellow);
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--pastel-yellow);
+            border: 2px solid var(--pastel-yellow);
+            padding: 0.8rem 1.8rem;
+            font-weight: 600;
+            border-radius: 4px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            background-color: rgba(252, 226, 133, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* ==========================================
+           4. MAIN CONTENT LAYOUT
+           ========================================== */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--navy-blue);
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 150px;
+            height: 2px;
+            background-color: var(--navy-blue);
+            opacity: 0.2;
+        }
+
+        /* ==========================================
+           5. CARDS (EXPERIENCE / EDUCATION / PROJECTS)
+           ========================================== */
+        .card {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border-left: 4px solid var(--navy-blue);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateX(5px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.2rem;
+        }
+
+        .role-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--navy-blue);
+        }
+
+        .company-name {
+            color: var(--text-light);
+            font-weight: 500;
+            margin-top: 0.2rem;
+        }
+
+        .date-badge {
+            background-color: var(--pastel-yellow);
+            color: var(--navy-blue);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .card ul {
+            padding-left: 1.2rem;
+            color: var(--text-dark);
+        }
+
+        .card li {
+            margin-bottom: 0.6rem;
+        }
+
+        /* PROJECTS GRID Extension */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            border-left: none;
+            border-top: 4px solid var(--navy-blue);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-tech {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        /* ==========================================
+           6. SKILLS TAGS GRID
+           ========================================== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .skill-item {
+            background-color: var(--navy-blue);
+            color: var(--eggshell-white);
+            text-align: center;
+            padding: 1.2rem;
+            border-radius: 6px;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .skill-item:hover {
+            background-color: var(--navy-light);
+            color: var(--pastel-yellow);
+            transform: scale(1.03);
+        }
+
+        /* ==========================================
+           7. FOOTER
+           ========================================== */
+        footer {
+            background-color: var(--navy-blue);
+            color: var(--text-light);
+            text-align: center;
+            padding: 2.5rem;
+            margin-top: 5rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* ==========================================
+           8. RESPONSIVE DESIGN (MOBILE OPTIMIZATION)
+           ========================================== */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .card-header {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            .date-badge {
+                align-self: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <header>
+        <div class="nav-container">
+            <!-- TODO: Replace with your initials or brand name -->
+            <div class="logo">&lt;YourName.Dev /&gt;</div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#education">Education</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="about">
+        <div class="hero-content">
+            <h3>HI THERE, MY NAME IS</h3>
+            <!-- TODO: Put your full name here -->
+            <h1>Your Full Name</h1>
+            <!-- TODO: Write a brief, punchy summary of who you are -->
+            <p>A Full Stack Developer dedicated to crafting clean, high-performance web applications and solving intricate software engineering challenges.</p>
+            <!-- TODO: Put your contact email address -->
+            <a href="mailto:your.email@example.com" class="cta-btn">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- MAIN RESUME CONTAINER -->
+    <div class="container">
+
+        <!-- WORK EXPERIENCE SECTION -->
+        <section id="experience">
+            <h2 class="section-title">Work Experience</h2>
+            
+            <!-- Job Entry 1 -->
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <!-- TODO: Add job title and company name -->
